@@ -1,0 +1,14 @@
+body {
+    background-image: url('../images/background.jpg');
+    .description {
+        color: hotpink;
+        font-size: 2em;
+        margin: 0 auto;
+        text-align: center;
+        text-transform: capitalize;
+    }
+    .changed {
+        background-color: green;
+        color: yellow;
+    }
+}

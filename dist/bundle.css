@@ -1,0 +1,14 @@
+body {
+  background-image: url(images/eb6c6ab1e93e4cfa3f36a2bcd7355bb9.jpg);
+}
+body .description {
+  color: hotpink;
+  font-size: 2em;
+  margin: 0 auto;
+  text-align: center;
+  text-transform: capitalize;
+}
+body .changed {
+  background-color: green;
+  color: yellow;
+}
