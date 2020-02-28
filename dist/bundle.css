@@ -1,14 +1,180 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul,
+ol {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+/* Set core body defaults */
 body {
-  background-image: url(images/eb6c6ab1e93e4cfa3f36a2bcd7355bb9.jpg);
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  overflow-x: hidden;
 }
-body .description {
-  color: hotpink;
-  font-size: 2em;
-  margin: 0 auto;
-  text-align: center;
-  text-transform: capitalize;
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul,
+ol {
+  list-style-type: none;
 }
-body .changed {
-  background-color: green;
-  color: yellow;
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+.fa, .fas, .fab {
+  display: inline-block;
+  line-height: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@font-face {
+  font-family: "Roboto Thin";
+  font-weight: 300;
+  font-style: normal;
+  src: url(fonts/94998475f6aea65f558494802416c1cf.ttf);
+}
+@font-face {
+  font-family: "Roboto Thin Italic";
+  font-weight: 300;
+  font-style: italic;
+  src: url(fonts/8f066370a8530a3f3e971b8e274b7ddf.ttf);
+}
+@font-face {
+  font-family: "Roboto Light";
+  font-weight: 400;
+  font-style: normal;
+  src: url(fonts/46e48ce0628835f68a7369d0254e4283.ttf);
+}
+@font-face {
+  font-family: "Roboto Light Italic";
+  font-weight: 400;
+  font-style: italic;
+  src: url(fonts/4356190d747fe8bea2bc7c83f25102fa.ttf);
+}
+@font-face {
+  font-family: "Roboto Regular";
+  font-weight: 400;
+  font-style: normal;
+  src: url(fonts/df7b648ce5356ea1ebce435b3459fd60.ttf);
+}
+@font-face {
+  font-family: "Roboto Medium";
+  font-weight: 400;
+  font-style: normal;
+  src: url(fonts/894a2ede85a483bf9bedefd4db45cdb9.ttf);
+}
+@font-face {
+  font-family: "Roboto Bold";
+  font-weight: 700;
+  font-style: normal;
+  src: url(fonts/e31fcf1885e371e19f5786c2bdfeae1b.ttf);
+}
+@font-face {
+  font-family: "Roboto Condensed Regular";
+  font-weight: 400;
+  font-style: normal;
+  src: url(fonts/e6fd95f0cb839566476ec9b6df34849c.ttf);
+}
+@font-face {
+  font-family: "Roboto Condensed Bold";
+  font-weight: 700;
+  font-style: normal;
+  src: url(fonts/7ff4438405bfb9fe87b606ca356ba6a0.ttf);
+}
+body {
+  background-color: #111312;
+  color: #fefefe;
+}
+
+main.page-wrapper {
+  padding: 10px;
+  width: 100%;
+  height: auto;
+}
+main.page-wrapper .banner-section__container {
+  padding: 15px;
+  overflow-x: hidden;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  background-color: #0c5d49;
+}
+main.page-wrapper .banner-section__container header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+main.page-wrapper .banner-section__container header i.fas {
+  font-size: 1.3em;
+}
+main.page-wrapper .banner-section__container header nav i.fas {
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
 }

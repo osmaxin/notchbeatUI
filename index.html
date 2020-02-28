@@ -1,21 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Music Beat App</title>
-    <link rel="stylesheet" href="dist/bundle.css">
-</head>
-<body>
+    <link rel="stylesheet" href="dist/bundle.css" />
+    <link rel="stylesheet" href="src/fonts/fontawesome/css/all.min.css">
+  </head>
+  <body>
     <main class="page-wrapper">
+      <!-- page banner container starts here. This container holds
+        page-header, nav and search box -->
+      <div class="banner-section__container">
         <header>
-            <nav>
-                
-            </nav>
+          <nav>
+            <i class="fas fa-align-right"></i>
+          </nav>
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+          </div>
         </header>
+
+        <!-- page banner description starts here -->
+        <section class="banners__holder">
+          <div class="banner banner_1">
+            <img class="banner__cover-photo" src="#" alt="music album photo" />
+            <div class="banner__info-container">
+              <h2 class="banner__title_1">akcent feat lidia buble..</h2>
+              <p class="banner__desc">
+                check out best beat and latest song in our store
+              </p>
+              <div class="banner-button_container">
+                <button class="banner-button banner-button__play"></button>
+                <button class="banner-button banner-button__share"></button>
+              </div>
+            </div>
+            <h3>the weekend</h3>
+            
+          </div>
+
+          <ul class="banner__pagenation">
+            <li><i class="fab fa-facebook"></i></li>
+            <li>.</li>
+            <li>.</li>
+            <li>.</li>
+        </ul>
+        </section>
+        <!-- page banner description ends here -->
+      </div>
+      <!-- page banner container ends here -->
     </main>
-    
 
     <script src="dist/bundle.js"></script>
-</body>
+  </body>
 </html>

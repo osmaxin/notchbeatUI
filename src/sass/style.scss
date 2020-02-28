@@ -1,14 +1,220 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul,
+ol {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+/* Set core body defaults */
 body {
-    background-image: url('../images/background.jpg');
-    .description {
-        color: hotpink;
-        font-size: 2em;
-        margin: 0 auto;
-        text-align: center;
-        text-transform: capitalize;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul,
+ol {
+  list-style-type: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+a {
+  text-decoration: none;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+.fa, .fas, .fab {
+    display: inline-block;
+    line-height: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@font-face {
+  font-family: "Roboto Thin";
+  font-weight: 300;
+  font-style: normal;
+  src: url(../../src/fonts/font/Roboto/roboto.thin.ttf);
+}
+
+@font-face {
+  font-family: "Roboto Thin Italic";
+  font-weight: 300;
+  font-style: italic;
+  src: url(../../src/fonts/font/Roboto/roboto.thin-italic.ttf);
+}
+
+@font-face {
+  font-family: "Roboto Light";
+  font-weight: 400;
+  font-style: normal;
+  src: url(../../src/fonts/font/Roboto/roboto.light.ttf);
+}
+
+@font-face {
+  font-family: "Roboto Light Italic";
+  font-weight: 400;
+  font-style: italic;
+  src: url(../../src/fonts/font/Roboto/roboto.light-italic.ttf);
+}
+
+@font-face {
+  font-family: "Roboto Regular";
+  font-weight: 400;
+  font-style: normal;
+  src: url(../../src/fonts/font/Roboto/roboto.regular.ttf);
+}
+
+@font-face {
+  font-family: "Roboto Medium";
+  font-weight: 400;
+  font-style: normal;
+  src: url(../../src/fonts/font/Roboto/roboto.medium.ttf);
+}
+
+@font-face {
+  font-family: "Roboto Bold";
+  font-weight: 700;
+  font-style: normal;
+  src: url(../../src/fonts/font/Roboto/roboto.bold.ttf);
+}
+
+@font-face {
+  font-family: "Roboto Condensed Regular";
+  font-weight: 400;
+  font-style: normal;
+  src: url(../../src/fonts/font/Roboto/roboto-condensed.regular.ttf);
+}
+
+@font-face {
+  font-family: "Roboto Condensed Bold";
+  font-weight: 700;
+  font-style: normal;
+  src: url(../../src/fonts/font/Roboto/roboto-condensed.bold.ttf);
+}
+
+// page colors
+$colors: (
+  text: #fefefe,
+  text-dark: darken(#fefefe, 40%),
+  primary: #111312,
+  accent: #15dd7d,
+  banner-bg: #0c5d49,
+  banner-bg-transparent: #0c5d4963
+);
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+// page paddings
+$padding: 10px;
+
+// page margins
+$margins: (
+    small-margin: 10px,
+    medium-margin: 15p,
+    large-margin: 20px
+);
+@function margin ($margin-type) {
+    @return map-get($margins, $margin-type);
+}
+
+body {
+  background-color: color(primary);
+  color: color(text);
+}
+
+main.page-wrapper {
+  padding: $padding;
+  width: 100%;
+  height: auto;
+
+  .banner-section__container {
+    padding: ($padding * 2) - 5;
+    overflow-x: hidden;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    background-color: color(banner-bg);
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: margin(small-margin);
+
+      i.fas {
+        font-size: 1.3em;
+      }
+
+      nav{
+          i.fas {
+              transform: rotate(360deg);
+              -webkit-transform: rotate(360deg);
+              -moz-transform: rotate(360deg);
+              -ms-transform: rotate(360deg);
+              -o-transform: rotate(360deg);
+}
+      }
     }
-    .changed {
-        background-color: green;
-        color: yellow;
-    }
+  }
 }
