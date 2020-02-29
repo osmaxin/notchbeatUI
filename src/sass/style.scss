@@ -36,8 +36,11 @@ body {
   min-height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
+  line-height: 1.4;
   overflow-x: hidden;
+}
+html{
+  height: 100%;
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */
@@ -65,6 +68,14 @@ article > * + * {
   margin-top: 1em;
 }
 
+/* buttons resets */
+button[class] {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: inherit;
+}
+
 /* Inherit fonts for inputs and buttons */
 input,
 button,
@@ -72,9 +83,11 @@ textarea,
 select {
   font: inherit;
 }
-.fa, .fas, .fab {
-    display: inline-block;
-    line-height: inherit;
+.fa,
+.fas,
+.fab {
+  display: inline-block;
+  line-height: inherit;
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */
@@ -153,68 +166,285 @@ select {
 // page colors
 $colors: (
   text: #fefefe,
-  text-dark: darken(#fefefe, 40%),
+  text-dark: darken(#fefefe, 15%),
+  text-darker: darken(#fefefe, 40%),
   primary: #111312,
   accent: #15dd7d,
   banner-bg: #0c5d49,
-  banner-bg-transparent: #0c5d4963
+  banner-bg-transparent: #0216111a
 );
 @function color($color-name) {
   @return map-get($colors, $color-name);
 }
 
 // page paddings
-$padding: 10px;
+$small-padding: 10px;
+$padding: 15px;
 
 // page margins
 $margins: (
-    small-margin: 10px,
-    medium-margin: 15p,
-    large-margin: 20px
+  small-margin: 10px,
+  medium-margin: 15px,
+  large-margin: 20px
 );
-@function margin ($margin-type) {
-    @return map-get($margins, $margin-type);
+@function margin($margin-type) {
+  @return map-get($margins, $margin-type);
 }
 
 body {
   background-color: color(primary);
   color: color(text);
+  font-family: "Roboto Regular";
+  position: relative;
 }
 
 main.page-wrapper {
-  padding: $padding;
+  // padding: $padding;
   width: 100%;
-  height: auto;
+  min-height: 100%;
+
+  
 
   .banner-section__container {
-    padding: ($padding * 2) - 5;
+    height: 45vh;
+    padding: ($padding);
+    position: relative;
     overflow-x: hidden;
-    border-radius: 30px;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    -ms-border-radius: 30px;
-    -o-border-radius: 30px;
     background-color: color(banner-bg);
+    z-index: 1;
+    border-radius: 0px 0px 30px 30px;
+    -webkit-border-radius: 0px 0px 30px 30px;
+    -moz-border-radius: 0px 0px 30px 30px;
+    -ms-border-radius: 0px 0px 30px 30px;
+    -o-border-radius: 0px 0px 30px 30px;
 
+    ::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: color(banner-bg-transparent);
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: -4;
+    }
+
+    // header styling goes here
     header {
       display: flex;
+      background-color: transparent;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: margin(small-margin);
+
+      .search-box,
+      nav {
+      }
 
       i.fas {
-        font-size: 1.3em;
+        font-size: 1.6em;
+        cursor: pointer;
       }
 
-      nav{
-          i.fas {
-              transform: rotate(360deg);
-              -webkit-transform: rotate(360deg);
-              -moz-transform: rotate(360deg);
-              -ms-transform: rotate(360deg);
-              -o-transform: rotate(360deg);
-}
+      // nav bar styling goes here
+      nav {
+        i.fas {
+          // transform: rotate(360deg);
+          // -webkit-transform: rotate(360deg);
+          // -moz-transform: rotate(360deg);
+          // -ms-transform: rotate(360deg);
+          // -o-transform: rotate(360deg);
+        }
       }
     }
+
+    .banners__holder {
+      background-color: transparent;
+      padding: $padding;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      z-index: -4;
+
+      .banner {
+        background-color: transparent;
+        width: 100%;
+
+        &__cover-photo {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          left: 0;
+          top: 0;
+          z-index: -4;
+        }
+
+        &__info-container {
+          width: 75%;
+          margin-top: margin(large-margin) * 4;
+          h1 {
+            font-size: 1.6em;
+            font-family: "Roboto Medium";
+            margin-bottom: margin(medium-margin);
+            line-height: 1.2;
+            text-transform: capitalize;
+          }
+          .banner-button {
+            display: inline-block;
+            font-size: .80em;
+            text-transform: uppercase;
+            padding: 3px 6px;
+            margin-top: margin(medium-margin);
+            background-color: color(text);
+            border-radius: 3px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            -ms-border-radius: 3px;
+            -o-border-radius: 3px;
+
+
+            &__play, &__share {
+              cursor: pointer;
+            }
+            &__play:hover, &__share:hover {
+              padding: 0px 10px;
+            }
+            &__play {
+              color: color(accent);
+              padding: 3px 10px;
+              margin-right: 3px;
+              font-family: "Roboto light";
+            }
+            &__share {
+              color: #3d3d3d;
+            }
+          }
+
+          .banner__desc {
+            line-height: 1.2em;
+            color: color(text-dark);
+          }
+        }
+      }
+    }
+
+    .banner__pagenation {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      li {
+        margin: 4px;
+        width: 10px;
+        height: 10px;
+        padding: 3px;
+        border: 1px solid color(text);
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+      }
+    }
+  }
+
+  //(section) music-beats and beats-card styling goes here
+  .music-beats {
+    width: 100%;
+    padding: $padding;
+
+    &__title {
+      margin: margin(medium-margin) 0;
+      font-weight: 200;
+      text-transform: capitalize;
+      font-size: 1.25em;
+      text-shadow: 2px 2px 2px #585858;
+    }
+
+    &__card-container {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      grid-column-gap: 15px;
+      grid-row-gap: 50px;
+
+      .card {
+        // width: 33.33%;
+
+        &__image {
+          display: block;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 4px;
+          -webkit-border-radius: 4px;
+          -moz-border-radius: 4px;
+          -ms-border-radius: 4px;
+          -o-border-radius: 4px;
+}
+
+        &__title {
+          color: color(text-dark);
+          padding-top: ($small-padding) - 2px;
+          text-transform: capitalize;
+          font-family: "Roboto light";
+          font-size: 1em;
+      text-shadow: 1px 1px 2px #363636;
+
+        }
+        &__desc {
+          color: color(text-darker);
+          font-size: 0.80em;
+          line-height: 1.05;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+  
+
+}
+
+
+// playing beat bottom section styling goes here
+.playing-beat-container {
+  width: 100%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px $padding;
+  position: fixed;
+  bottom: 0;
+  background-color: color(primary);
+  box-shadow: 0px -2px 15px 0 #4b4949;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+
+  .playing-title {
+    color: color(text-dark);
+    font-size: .80em;
+    text-transform: capitalize;
+  }
+  i {
+    color: color(accent);
+    cursor: pointer;
+  }
+  i.fa-play-circle {
+    font-size: 1.4em;
+    margin: 0px 5px;
+  }
+  i.fas {
+    color: color(text);
+    font-size: 1.5em;
+    margin-left: 8px;
   }
 }
