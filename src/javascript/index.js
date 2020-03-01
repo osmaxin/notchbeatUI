@@ -1,8 +1,18 @@
 import '../sass/style.scss';
 
-const writeUp = document.querySelector('.description');
+const searchBox = document.querySelector(".search-box .popUp-container");
 
-writeUp.textContent = `hi I am ${2+8} years old, and setting up webpack`;
-writeUp.addEventListener('click', () => {
-    writeUp.classList.toggle('changed');
-})
+const searchIcon = document.querySelector('.search-box .fa-search');
+
+const toggleSearchBox = () => {
+    const scl = searchBox.classList;
+    if(scl.contains('hide-search-box')){
+        scl.remove('hide-search-box');
+        scl.add('show-search-box');
+    } else {
+        scl.add('hide-search-box');
+        scl.remove('show-search-box');
+    }
+}
+
+searchIcon.addEventListener('click', toggleSearchBox);

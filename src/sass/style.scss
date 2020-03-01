@@ -39,7 +39,7 @@ body {
   line-height: 1.4;
   overflow-x: hidden;
 }
-html{
+html {
   height: 100%;
 }
 
@@ -75,6 +75,9 @@ button[class] {
   border: none;
   font-family: inherit;
 }
+button:focus, input:focus {
+  outline: none;
+}
 
 /* Inherit fonts for inputs and buttons */
 input,
@@ -82,6 +85,10 @@ button,
 textarea,
 select {
   font: inherit;
+}
+input {
+  padding: 0;
+  border: none;
 }
 .fa,
 .fas,
@@ -203,8 +210,6 @@ main.page-wrapper {
   width: 100%;
   min-height: 100%;
 
-  
-
   .banner-section__container {
     height: 45vh;
     padding: ($padding);
@@ -240,6 +245,90 @@ main.page-wrapper {
       nav {
       }
 
+      .search-box {
+        position: relative;
+
+        .hide-search-box {
+          width: 300px;
+          position: absolute;
+          left: -300px;
+          background-color: #111312e1;
+          padding: ($padding *2) $padding;
+          display: grid;
+          grid-template-columns: auto 1fr;
+          grid-column-gap: 4px;
+          overflow: hidden;
+          transform: translateY(-150px);
+          -webkit-transform: translateY(-150px);
+          -moz-transform: translateY(-150px);
+          -ms-transform: translateY(-150px);
+          -o-transform: translateY(-150px);
+          transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          -webkit-transition: all 0.3s ease-in;
+}
+
+        .show-search-box {
+          width: 300px;
+          position: absolute;
+          left: -300px;
+          opacity: 1;
+          background-color: #111312e1;
+          padding: ($padding *2) $padding;
+          display: grid;
+          grid-template-columns: auto 1fr;
+          grid-column-gap: 4px;
+          overflow: hidden;
+          
+
+          .search,
+          input {
+            padding: 4px;
+            background-color: #bbbaba;
+          }
+          .search {
+            color: #333;
+            cursor: pointer;
+            border-radius: 6px 0px 0px 6px;
+            -webkit-border-radius: 6px 0px 0px 6px;
+            -moz-border-radius: 6px 0px 0px 6px;
+            -ms-border-radius: 6px 0px 0px 6px;
+            -o-border-radius: 6px 0px 0px 6px;
+          }
+          .search:hover {
+            background-color: color(text-dark);
+          }
+          .search:focus {
+            outline: none;
+          }
+          input {
+            font-size: 0.85em;
+            border-radius: 0px 6px 6px 0px;
+            -webkit-border-radius: 0px 6px 6px 0px;
+            -moz-border-radius: 0px 6px 6px 0px;
+            -ms-border-radius: 0px 6px 6px 0px;
+            -o-border-radius: 0px 6px 6px 0px;
+          }
+          transition: all 0.6s ease-in-out;
+          -webkit-transition: all 0.6s ease-in-out;
+          -moz-transition: all 0.6s ease-in-out;
+          -ms-transition: all 0.6s ease-in-out;
+          -o-transition: all 0.6s ease-in-out;
+          border-radius: 30px 0px 30px;
+          -webkit-border-radius: 30px 0px 30px;
+          -moz-border-radius: 30px 0px 30px;
+          -ms-border-radius: 30px 0px 30px;
+          -o-border-radius: 30px 0px 30px;
+}
+        input:focus {
+          background-color: color(text);
+          color: #363636;
+          outline: none;
+        }
+      }
+
       i.fas {
         font-size: 1.6em;
         cursor: pointer;
@@ -260,7 +349,6 @@ main.page-wrapper {
     .banners__holder {
       background-color: transparent;
       padding: $padding;
-      position: absolute;
       top: 0;
       right: 0;
       left: 0;
@@ -284,6 +372,8 @@ main.page-wrapper {
         &__info-container {
           width: 75%;
           margin-top: margin(large-margin) * 4;
+          // margin-bottom: margin(large-margin) * 50;
+
           h1 {
             font-size: 1.6em;
             font-family: "Roboto Medium";
@@ -293,7 +383,7 @@ main.page-wrapper {
           }
           .banner-button {
             display: inline-block;
-            font-size: .80em;
+            font-size: 0.8em;
             text-transform: uppercase;
             padding: 3px 6px;
             margin-top: margin(medium-margin);
@@ -304,11 +394,12 @@ main.page-wrapper {
             -ms-border-radius: 3px;
             -o-border-radius: 3px;
 
-
-            &__play, &__share {
+            &__play,
+            &__share {
               cursor: pointer;
             }
-            &__play:hover, &__share:hover {
+            &__play:hover,
+            &__share:hover {
               padding: 0px 10px;
             }
             &__play {
@@ -386,7 +477,7 @@ main.page-wrapper {
           -moz-border-radius: 4px;
           -ms-border-radius: 4px;
           -o-border-radius: 4px;
-}
+        }
 
         &__title {
           color: color(text-dark);
@@ -394,22 +485,18 @@ main.page-wrapper {
           text-transform: capitalize;
           font-family: "Roboto light";
           font-size: 1em;
-      text-shadow: 1px 1px 2px #363636;
-
+          text-shadow: 1px 1px 2px #363636;
         }
         &__desc {
           color: color(text-darker);
-          font-size: 0.80em;
+          font-size: 0.8em;
           line-height: 1.05;
           text-transform: capitalize;
         }
       }
     }
   }
-  
-
 }
-
 
 // playing beat bottom section styling goes here
 .playing-beat-container {
@@ -431,7 +518,7 @@ main.page-wrapper {
 
   .playing-title {
     color: color(text-dark);
-    font-size: .80em;
+    font-size: 0.8em;
     text-transform: capitalize;
   }
   i {

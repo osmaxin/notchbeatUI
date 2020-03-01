@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sass_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sass/style.scss */ \"./src/sass/style.scss\");\n/* harmony import */ var _sass_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sass_style_scss__WEBPACK_IMPORTED_MODULE_0__);\n\nvar writeUp = document.querySelector('.description');\nwriteUp.textContent = \"hi I am \".concat(2 + 8, \" years old, and setting up webpack\");\nwriteUp.addEventListener('click', function () {\n  writeUp.classList.toggle('changed');\n});\n\n//# sourceURL=webpack:///./src/javascript/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sass_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sass/style.scss */ \"./src/sass/style.scss\");\n/* harmony import */ var _sass_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sass_style_scss__WEBPACK_IMPORTED_MODULE_0__);\n\nvar searchBox = document.querySelector(\".search-box .popUp-container\");\nvar searchIcon = document.querySelector('.search-box .fa-search');\n\nvar toggleSearchBox = function toggleSearchBox() {\n  var scl = searchBox.classList;\n\n  if (scl.contains('hide-search-box')) {\n    scl.remove('hide-search-box');\n    scl.add('show-search-box');\n  } else {\n    scl.add('hide-search-box');\n    scl.remove('show-search-box');\n  }\n};\n\nsearchIcon.addEventListener('click', toggleSearchBox);\n\n//# sourceURL=webpack:///./src/javascript/index.js?");
 
 /***/ }),
 
